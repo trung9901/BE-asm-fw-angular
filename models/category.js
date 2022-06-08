@@ -4,6 +4,10 @@ const categorySchema = new Schema({
         type: String,
         required: true,
         unique: true,
+    },
+    status: {
+        type: Number,
+        required: true,
     }
 
 }, { timestamps: true })

@@ -6,6 +6,9 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
+    sale_price: {
+        type: Number
+    },
     slug: {
         type: String,
         lowercase: true,
@@ -24,10 +27,15 @@ const productSchema = new Schema({
         type: String,
 
     },
+    status: {
+        type: Number,
+        required: true
+    },
     category: {
         type: ObjectId,
         ref: "Category"
-    }
+    },
+
 
 }, { timestamps: true })
 productSchema.index({ "$**": 'text' });
