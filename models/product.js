@@ -6,9 +6,7 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
-    sale_price: {
-        type: Number
-    },
+
     slug: {
         type: String,
         lowercase: true,
@@ -18,6 +16,9 @@ const productSchema = new Schema({
     price: {
         type: Number,
         required: true
+    },
+    image: {
+        type: String,
     },
     quantity: {
         type: Number,
@@ -29,7 +30,7 @@ const productSchema = new Schema({
     },
     status: {
         type: Number,
-        required: true
+
     },
     category: {
         type: ObjectId,
