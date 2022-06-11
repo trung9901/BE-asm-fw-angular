@@ -36,8 +36,6 @@ const productSchema = new Schema({
         type: ObjectId,
         ref: "Category"
     },
-
-
 }, { timestamps: true })
 productSchema.index({ "$**": 'text' });
 

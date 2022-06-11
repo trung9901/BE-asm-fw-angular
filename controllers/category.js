@@ -1,4 +1,5 @@
 import Category from "../models/category";
+import Product from "../models/product";
 export const list = async (req, res) => {
     try {
         const ListCategory = await Category.find().sort({ 'createdAt': -1 }).exec();
@@ -37,8 +38,13 @@ export const update = async (req, res) => {
 //
 export const read = async (req, res) => {
     try {
-        const category = await Category.findById(req.params.id);
-        res.json(category);
+        // const category = await Category.findById(req.params.id);
+        const category = await Category.findOne({ _id: req.params.id }).exec();
+        const products = await Product.find({ category: category }).populate('category').select('-category').exec()
+        res.json({
+            category,
+            products
+        });
     } catch (error) {
         res.status(400).json({
             message: "Không tìm được sản phẩm anh eiii"
