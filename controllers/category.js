@@ -1,7 +1,7 @@
 import Category from "../models/category";
 export const list = async (req, res) => {
     try {
-        const ListCategory = await Category.find();
+        const ListCategory = await Category.find().sort({ 'createdAt': -1 }).exec();
         res.json(ListCategory);
     } catch (error) {
         res.status(400).json({
