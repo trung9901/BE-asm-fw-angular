@@ -6,8 +6,11 @@ const router = Router();
 
 router.get('/users', list)
 router.get('/users/:id', read)
-router.post('/users/:userId', requireSignin, isAuth, isAdmin, post)
-router.put('/users/:userId/:id', checkAuth, update)
-router.delete('/users/:userId/:id', checkAuth, remove)
+// router.post('/users/:userId', requireSignin, isAuth, isAdmin, post)
+// router.put('/users/:userId/:id', checkAuth, update)
+// router.delete('/users/:userId/:id', checkAuth, remove)
+router.post('/users', post)
+router.put('/users/:id', update)
+router.delete('/users/:id', remove)
 router.param('userId', userById)
 export default router;
