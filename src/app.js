@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose'
 // router
 import productRoute from '../routes/product';
-
+import newRoute from '../routes/new'
 import categoryRoute from '../routes/category';
 import authRoute from '../routes/auth'
 import UsersRoute from '../routes/user';
@@ -16,6 +16,7 @@ app.use(express.json())
     //route
 
 app.use("/api", productRoute);
+app.use("/api", newRoute);
 app.use("/api", categoryRoute);
 app.use("/api", authRoute);
 app.use('/api', UsersRoute)
