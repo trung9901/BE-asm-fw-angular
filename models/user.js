@@ -20,6 +20,10 @@ const userSchema = new Schema({
     role: {
         type: Number,
         default: 0
+    },
+    status: {
+        type: Number,
+        default: 0
     }
 }, { timestamps: true });
 
@@ -37,7 +41,7 @@ userSchema.methods = {
     }
 }
 
-userSchema.pre("save", function (next) {
+userSchema.pre("save", function(next) {
     this.password = this.encrytPassword(this.password);
     next();
 })
